@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react';
 import Button from '@material-ui/core/Button';
-import Stack from './Stack';
-import Letter from './Letter';
 import useGameInput from './game-input';
 import usePuzzleKey from './puzzle-key';
 import Board from './Board';
+import UserInput from './UserInput';
 
 // const puzzle = 'za uiwaoys urwlyl, tuio sr nrw dikk lyol re loygl kyiszam wg or uzmuyb ekrrbl? ldiby-tinl.';
 // const clues = { u: 'h' };
@@ -23,10 +22,7 @@ const App = () => {
   return (
     <>
     {settingLetter && (
-      <Stack horizontal>
-        <Letter outlined>{settingLetter}</Letter>
-        <p>=</p>
-      </Stack>
+      <UserInput settingLetter={settingLetter} />
     )}
     <Board puzzle={puzzle} puzzleKey={puzzleKey} />
     <Button color="secondary" onClick={handleClick}>Reset</Button>
