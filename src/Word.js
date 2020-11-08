@@ -4,15 +4,15 @@ import Stack from './Stack';
 import Pair from './Pair';
 import { isLetter } from './letters';
 
-const solutionFor = (letter, letterMap) => R.when(isLetter, R.propOr(' ', R.__, letterMap))(letter);
+const solutionFor = (letter, puzzleKey) => R.when(isLetter, R.propOr(' ', R.__, puzzleKey))(letter);
 
 const Word = ({
   className,
   word,
-  letterMap,
+  puzzleKey,
 }) => {
   const pairs = R.addIndex(R.map)(
-    (letter, i) => <Pair key={i} letter={letter} solution={solutionFor(letter, letterMap)} />,
+    (letter, i) => <Pair key={i} letter={letter} solution={solutionFor(letter, puzzleKey)} />,
     word,
   );
 
