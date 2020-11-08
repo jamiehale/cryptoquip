@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Stack = styled(({ horizontal, ...props }) => <div {...props} />)`
+const Stack = styled(({ horizontal, spacing, ...props }) => <div {...props} />)`
   display: flex;
   flex-direction: ${({ horizontal }) => horizontal ? 'row' : 'column'};
 
-  > * {
-    padding-top: 8px;
+  * + * {
+    ${({ horizontal, spacing }) => (horizontal ? `margin-left: ${spacing * 8}px` : `margin-top: ${spacing * 8}px`)};
   }
 `;
 

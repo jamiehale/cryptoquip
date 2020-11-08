@@ -24,7 +24,7 @@ const Container = styled.div`
   flex-wrap: wrap;
 
   ${Word} {
-    margin-right: 32px;
+    margin-right: 16px;
   }
 `;
 

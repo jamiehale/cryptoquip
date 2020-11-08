@@ -6,8 +6,8 @@ const Pair = ({
   letter,
   solution,
 }) => (
-  <Stack>
-    <Letter>{letter}</Letter>
+  <Stack spacing={1}>
+    <Letter outlined>{letter}</Letter>
     <Letter>{solution}</Letter>
   </Stack>
 );
