@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import * as R from 'ramda';
+import Button from '@material-ui/core/Button';
 import useEventListener from '@use-it/event-listener';
 import UnstyledWord from './Word';
 import Stack from './Stack';
@@ -36,18 +37,14 @@ const Container = styled.div`
 const App = () => {
   const [settingLetter, setSettingLetter] = useState(null);
   const [letterMap, setLetterMap] = useState(clues);
-  console.log({ letterMap });
 
   const puzzleWords = R.split(' ', puzzle);
   const board = transformed(puzzle, letterMap);
-  console.log({ board });
 
   const words = R.addIndex(R.map)(
     (word, i) => <Word key={i} word={word} letterMap={letterMap} />,
     puzzleWords,
   );
-
-  console.log({ words });
 
   const handleKeyDown = useCallback((event) => {
     if (settingLetter) {
@@ -82,7 +79,7 @@ const App = () => {
       </Stack>
     )}
     <Container>{words}</Container>
-    <button onClick={handleClick}>Reset</button>
+    <Button color="secondary" onClick={handleClick}>Reset</Button>
     </>
   );
 };
