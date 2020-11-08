@@ -9,7 +9,7 @@ const Word = ({
   letterMap,
 }) => {
   const pairs = R.addIndex(R.map)(
-    (letter, i) => <Pair key={i} letter={letter} solution={R.propOr(' ', letter, letterMap)} />,
+    (letter, i) => <Pair key={i} letter={letter} solution={R.propOr(letter, letter, letterMap)} />,
     word,
   );
 
